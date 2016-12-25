@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_pos_pos_form">
+            <field name="name">pos.config.custom.form.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='receipt']" position="before">
+                    <group colspan="4" col="4">
+                        <separator string="Password Protection" colspan="4"/>
+                        <group colspan="2">
+                            <field name="is_password_quantity" />
+                            <field name="password_quantity" password="True" attrs="{'invisible': [('is_password_quantity','=', False)], 'required': [('is_password_quantity','=', True)]}" />
+                        </group>
+                        <group colspan="2">
+                            <field name="is_password_price" />
+                            <field name="password_price" password="True" attrs="{'invisible': [('is_password_price','=', False)], 'required': [('is_password_price','=', True)]}" />
+                        </group>
+                        <group colspan="2">
+                            <field name="is_password_discount" />
+                            <field name="password_discount" password="True" attrs="{'invisible': [('is_password_discount','=', False)], 'required': [('is_password_discount','=', True)]}" />
+                        </group>
+                        <group colspan="2">
+                            <field name="is_password_backspace" />
+                            <field name="password_backspace" password="True" attrs="{'invisible': [('is_password_backspace','=', False)], 'required': [('is_password_backspace','=', True)]}" />
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
